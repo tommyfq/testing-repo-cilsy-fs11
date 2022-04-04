@@ -1,0 +1,91 @@
+.float-left{
+    float:left;
+}
+.float-right{
+    float:right;
+}
+.col-12{
+    width:100%;
+}
+.col-8{
+    width:66.66%;
+}
+.col-4{
+    width:33.33%;
+}
+.col-6{
+    width:50%;
+}
+.col-3{
+    width:25%;
+}
+.col-2{
+    width:16.66%;
+}
+.col-offset-11{
+    margin-left:91.66%
+}
+.col-offset-9{
+    margin-left:75%
+}
+.col-offset-8{
+    margin-left:66.66%;
+}
+.text-right{
+    text-align:right;
+}
+ul{
+    list-style-type: none;
+}
+.card{
+    height:300px;
+    margin:5px;
+    position:relative;
+}
+.card-title{
+    color:white;
+    position:absolute;
+    bottom:0;
+    right:10px;
+}
+.card-category{
+    color:white;
+    position:absolute;
+    bottom:24px;
+    right:10px;
+}
+.gallery{
+    background-image:url('https://wallpaperaccess.com/full/3112870.jpg');
+}
+.keynotes{
+    background-image:url('https://wallpaperaccess.com/full/3112870.jpg');
+}
+.activities{
+    background-image:url('https://wallpaperaccess.com/full/3112870.jpg');
+}
+h1{
+    font-weight: 300;
+}
+body{
+    padding:20px;
+    font-family: 'Montserrat';
+}
+.header-home{
+    border-right:1px solid black;
+    padding:10px;
+}
+li{
+    margin-bottom:15px;
+}
+.btn-shop{
+    border:none;
+    padding:10px 20px 10px 20px;
+    background-color: black;
+    color:white;
+}
+.main-title  h1{
+    font-size:72px;
+}
+.middle-section{
+    margin-top:20px;
+}
