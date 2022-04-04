@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='./style.css' rel="stylesheet">
+    </head>
+    <body>
+        <!-- Container -->
+        <div class="col-12 float-left">
+            <!-- Header -->
+            <div style="background-color:grey" class="col-12 float-left">
+                <h1>Header</h1>
+            </div>
+            <!-- Content -->
+            <div class="col-12">
+                <div class="col-2 float-left">
+                    Category
+                </div>
+                <div id="card-container" class="col-8 float-left">
+                    
+                </div>
+                <div class="col-2 float-left">
+                    <input type="checkbox" id="Shirt" name="category" value="Shirt" onClick="filter('Shirt')">
+                    <label>Shirt</label><br>
+                    <input type="checkbox" id="Jeans" name="category" value="Jeans" onClick="filter('Jeans')">
+                    <label>Jeans</label><br>
+                    <input type="checkbox" id="Shoes" name="category" value="Shoes" onClick="filter('Shoes')">
+                    <label>Shoes</label><br>
+                </div>
+            </div>
+            <!-- Content -->
+        </div>
+    </body>
+    <script>
+        var array = [
+            {
+                name:'Product 1',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Shirt'
+            },
+            {
+                name:'Product 2',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Shirt'
+            },
+            {
+                name:'Product 3',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Shirt'
+            },
+            {
+                name:'Product 4',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Jeans'
+            },
+            {
+                name:'Product 5',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Jeans'
+            },
+            {
+                name:'Product 6',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Jeans'
+            },
+            {
+                name:'Product 7',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Shoes'
+            },
+            {
+                name:'Product 8',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Shoes'
+            },
+            {
+                name:'Product 9',
+                image:'https://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png',
+                category:'Shoes'
+            }
+        ];
+
+        function render(products){
+            console.log(products);
+            //Get element by Id with name Card Container
+            var cardContainer = document.getElementById("card-container");
+            cardContainer.innerHTML = "";
+            for(let i = 0; i < products.length; i++){
+                //Create element Card
+                var card = document.createElement("div");
+                card.setAttribute("class","card-product col-4 float-left");
+
+                //Create element Product image
+                var image = document.createElement("img");
+                image.setAttribute("src",products[i].image);
+
+                //Create element Product name
+                var name = document.createElement("h3");
+                var text = document.createTextNode(products[i].name);
+                name.appendChild(text);
+                
+                //Create element Product category
+                var category = document.createElement("h5");
+                var categoryText = document.createTextNode(products[i].category);
+                category.appendChild(categoryText);
+
+                
+                card.appendChild(image);
+                card.appendChild(name);
+                card.appendChild(category);
+                cardContainer.appendChild(card);
+            }
+        }
+
+        render(array);
+
+        var arrayFilter = [];
+
+        function filter(keyFilter){
+            var checkbox = document.getElementById(keyFilter);
+            console.log(checkbox.checked);
+            console.log(keyFilter);
+            if(checkbox.checked == true){
+                arrayFilter.push(keyFilter);        
+
+                var filterProduct = array.filter(function(product){
+                    return arrayFilter.indexOf(product.category) !== -1;
+                });
+                render(filterProduct);
+            }else{
+                var index = arrayFilter.indexOf(keyFilter);
+                if (index !== -1) {
+                    arrayFilter.splice(index, 1);
+                }
+                var filterProduct = array.filter(function(product){
+                    return arrayFilter.indexOf(product.category) !== -1;
+                });
+                render(filterProduct);
+            }
+
+            if(arrayFilter.length < 1){
+                render(array);
+            }
+        }
+
+    </script>
+</html>
